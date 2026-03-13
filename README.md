@@ -1,2 +1,2 @@
-# pares-b-day
-Pares Geburtstag
+# par-b-day
+Pa Geburtstag
