@@ -6,209 +6,200 @@
 <title>Happy Birthday Pares</title>
 
 <style>
-*,
-*::before,
-*::after{
-    box-sizing:border-box;
-}
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-:root{
-    --candy-pink:#ff6b9d;
-    --soft-pink:#ffd1dc;
-    --sunshine:#ffe066;
-    --mint:#a8e6cf;
-    --sky:#87ceeb;
-    --lilac:#c9b1ff;
-    --coral:#ff8a80;
-    --peach:#ffccbc;
-    --cream:#fffdf7;
-    --text-dark:#3d2c3e;
-    --text-soft:#6b5a6e;
-}
+  :root {
+    --candy-pink: #ff6b9d;
+    --soft-pink: #ffd1dc;
+    --sunshine: #ffe066;
+    --mint: #a8e6cf;
+    --sky: #87ceeb;
+    --lilac: #c9b1ff;
+    --coral: #ff8a80;
+    --peach: #ffccbc;
+    --cream: #fffdf7;
+    --text-dark: #3d2c3e;
+    --text-soft: #6b5a6e;
+  }
 
-html{
-    scroll-behavior:smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body{
-    margin:0;
-    min-height:100vh;
-    overflow-x:hidden;
-    font-family:Arial, Helvetica, sans-serif;
-    text-align:center;
-    color:var(--text-dark);
-    background:var(--cream);
+  body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #333;
+    background: var(--cream);
     background-image:
-        radial-gradient(ellipse at 20% 0%, rgba(255,208,220,0.55) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 10%, rgba(255,224,102,0.30) 0%, transparent 40%),
-        radial-gradient(ellipse at 50% 90%, rgba(168,230,207,0.30) 0%, transparent 50%),
-        linear-gradient(135deg,#ffdde1,#ee9ca7);
-}
+      radial-gradient(ellipse at 20% 0%, rgba(255,208,220,0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 10%, rgba(255,224,102,0.3) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 90%, rgba(168,230,207,0.3) 0%, transparent 50%);
+  }
 
-/* Hintergrund-Konfetti */
-.confetti-container{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
-    overflow:hidden;
-}
+  /* === CONFETTI === */
+  .confetti-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
 
-.confetti{
-    position:absolute;
-    top:-20px;
-    width:var(--size,10px);
-    height:var(--size,10px);
-    border-radius:var(--br,2px);
-    background:var(--color);
-    opacity:0.8;
-    animation:confettiFall var(--dur) linear infinite;
-    animation-delay:var(--delay);
-}
+  .confetti {
+    position: absolute;
+    top: -20px;
+    width: var(--size, 10px);
+    height: var(--size, 10px);
+    border-radius: var(--br, 2px);
+    background: var(--color);
+    opacity: 0.8;
+    animation: confettiFall var(--dur) linear infinite;
+    animation-delay: var(--delay);
+  }
 
-@keyframes confettiFall{
-    0%{
-        transform:translateY(-20px) rotate(0deg);
-        opacity:0.9;
+  @keyframes confettiFall {
+    0% {
+      transform: translateY(-20px) rotate(0deg);
+      opacity: 0.9;
     }
-    100%{
-        transform:translateY(105vh) rotate(var(--rot,720deg));
-        opacity:0;
+    100% {
+      transform: translateY(105vh) rotate(var(--rot, 720deg));
+      opacity: 0;
     }
-}
+  }
 
-/* Ballons */
-.balloon-container{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:1;
-    overflow:hidden;
-}
+  /* === BALLOONS === */
+  .balloon-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
 
-.balloon{
-    position:absolute;
-    bottom:-120px;
-    font-size:var(--bsize,3rem);
-    opacity:0.7;
-    animation:balloonRise var(--bdur) ease-in-out infinite;
-    animation-delay:var(--bdelay);
-}
+  .balloon {
+    position: absolute;
+    bottom: -120px;
+    font-size: var(--bsize, 3rem);
+    opacity: 0.7;
+    animation: balloonRise var(--bdur) ease-in-out infinite;
+    animation-delay: var(--bdelay);
+  }
 
-@keyframes balloonRise{
-    0%{
-        transform:translateY(0) translateX(0);
-        opacity:0;
+  @keyframes balloonRise {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
     }
-    10%{
-        opacity:0.7;
+    10% {
+      opacity: 0.7;
     }
-    90%{
-        opacity:0.6;
+    90% {
+      opacity: 0.6;
     }
-    100%{
-        transform:translateY(-110vh) translateX(var(--drift,30px)) rotate(var(--brot,15deg));
-        opacity:0;
+    100% {
+      transform: translateY(-110vh) translateX(var(--drift, 30px)) rotate(var(--brot, 15deg));
+      opacity: 0;
     }
-}
+  }
 
-/* Wimpelkette oben */
-.garland{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:50px;
-    z-index:10;
-    pointer-events:none;
-}
+  /* === GARLAND === */
+  .garland {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    pointer-events: none;
+  }
 
-.garland svg{
-    width:100%;
-    height:50px;
-}
+  .garland svg {
+    width: 100%;
+    height: 50px;
+  }
 
-/* Hauptinhalt */
-.container{
-    position:relative;
-    z-index:5;
-    max-width:900px;
-    margin:90px auto 40px auto;
-    padding:40px 20px;
-    background:rgba(255,255,255,0.82);
-    border-radius:24px;
-    box-shadow:0 12px 35px rgba(0,0,0,0.12);
-    backdrop-filter:blur(3px);
-}
+  /* DEIN INHALT */
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 80px 20px 40px;
+    position: relative;
+    z-index: 5;
+  }
 
-h1{
-    font-size:clamp(2rem, 5vw, 3.2rem);
-    margin-bottom:14px;
-    line-height:1.25;
-    color:#8b3a62;
-}
+  h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
 
-.subtitle{
-    font-size:clamp(1.1rem, 2.5vw, 1.5rem);
-    margin-bottom:35px;
-    color:var(--text-soft);
-}
+  .subtitle {
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
 
-.image-row{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:18px;
-    margin-bottom:10px;
-}
+  img {
+    width: 320px;
+    border-radius: 12px;
+    margin: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    max-width: 100%;
+  }
 
-img{
-    width:320px;
-    max-width:100%;
-    border-radius:16px;
-    margin:0;
-    box-shadow:0 10px 20px rgba(0,0,0,0.18);
-}
+  .quote {
+    font-size: 22px;
+    margin: 25px auto;
+    max-width: 700px;
+    line-height: 1.6;
+  }
 
-.quote{
-    font-size:clamp(1.05rem, 2.2vw, 1.35rem);
-    margin:25px auto;
-    max-width:700px;
-    line-height:1.75;
-    color:#4a3a4c;
-}
+  .footer {
+    margin-top: 40px;
+    font-size: 20px;
+  }
 
-.footer{
-    margin-top:35px;
-    font-size:clamp(1.05rem, 2vw, 1.25rem);
-    color:#8b3a62;
-    font-weight:bold;
-    line-height:1.7;
-}
-
-@media (max-width:600px){
-    .container{
-        margin:80px 14px 30px 14px;
-        padding:28px 16px;
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 34px;
     }
 
-    .garland{
-        height:40px;
+    .subtitle {
+      font-size: 18px;
     }
 
-    .garland svg{
-        height:40px;
+    .quote {
+      font-size: 18px;
     }
-}
+
+    .footer {
+      font-size: 18px;
+    }
+
+    img {
+      width: 90%;
+      margin: 10px 0;
+    }
+  }
 </style>
 </head>
 
 <body>
 
+<!-- Confetti -->
 <div class="confetti-container" id="confettiBox"></div>
+
+<!-- Balloons -->
 <div class="balloon-container" id="balloonBox"></div>
 
+<!-- Garland -->
 <div class="garland">
   <svg viewBox="0 0 1200 50" preserveAspectRatio="none">
     <path d="M0,6 Q60,46 120,6 Q180,46 240,6 Q300,46 360,6 Q420,46 480,6 Q540,46 600,6 Q660,46 720,6 Q780,46 840,6 Q900,46 960,6 Q1020,46 1080,6 Q1140,46 1200,6"
@@ -251,10 +242,8 @@ img{
 Für die Liebe meines Lebens.
 </p>
 
-<div class="image-row">
-    <img src="pares1.jpg" alt="Pares Bild 1">
-    <img src="pares2.jpg" alt="Pares Bild 2">
-</div>
+<img src="images/pares1.jpg" alt="Pares Bild 1">
+<img src="images/pares2.jpg" alt="Pares Bild 2">
 
 <p class="quote">
 Du bist nicht nur meine Julia, sondern auch mein Zuhause.
@@ -264,9 +253,7 @@ Mit dir fühlt sich alles leichter an – selbst die schweren Tage die wir zum G
 <p class="quote">
 Ich wünsche dir ein Jahr voller Gesundheit, Glück und Erfolg, das mein ich nicht einfach so sondern,
 deine Freude ist meine Freude, deine Gesundheit ist meine Gesundheit und dein Erfolg ist unser Erfolg.
-</p>
 
-<p class="quote">
 Und ich verspreche dir, an deiner Seite zu bleiben – egal wohin das Leben uns führt.
 </p>
 
@@ -282,36 +269,36 @@ Ich liebe dich mehr als Worte es sagen können.<br>
 </div>
 
 <script>
-const confettiBox = document.getElementById('confettiBox');
-const confettiColors = ['#ff6b9d','#ffe066','#87ceeb','#c9b1ff','#a8e6cf','#ff8a80','#ffccbc'];
+  const confettiBox = document.getElementById('confettiBox');
+  const confettiColors = ['#ff6b9d','#ffe066','#87ceeb','#c9b1ff','#a8e6cf','#ff8a80','#ffccbc'];
 
-for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 50; i++) {
     const c = document.createElement('div');
     c.classList.add('confetti');
-    c.style.setProperty('--size', (Math.random() * 7 + 4) + 'px');
-    c.style.setProperty('--color', confettiColors[Math.floor(Math.random() * confettiColors.length)]);
-    c.style.setProperty('--dur', (Math.random() * 6 + 7) + 's');
-    c.style.setProperty('--delay', (Math.random() * 12) + 's');
-    c.style.setProperty('--rot', (Math.random() * 1080) + 'deg');
-    c.style.setProperty('--br', Math.random() > 0.5 ? '50%' : '2px');
-    c.style.left = Math.random() * 100 + '%';
+    c.style.setProperty('--size', (Math.random()*7+4)+'px');
+    c.style.setProperty('--color', confettiColors[Math.floor(Math.random()*confettiColors.length)]);
+    c.style.setProperty('--dur', (Math.random()*6+7)+'s');
+    c.style.setProperty('--delay', (Math.random()*12)+'s');
+    c.style.setProperty('--rot', (Math.random()*1080)+'deg');
+    c.style.setProperty('--br', Math.random()>0.5 ? '50%' : '2px');
+    c.style.left = Math.random()*100+'%';
     confettiBox.appendChild(c);
-}
+  }
 
-const balloonBox = document.getElementById('balloonBox');
+  const balloonBox = document.getElementById('balloonBox');
 
-for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 8; i++) {
     const b = document.createElement('div');
     b.classList.add('balloon');
     b.textContent = '🎈';
-    b.style.left = Math.random() * 95 + '%';
-    b.style.setProperty('--bsize', (Math.random() * 1.2 + 1.8) + 'rem');
-    b.style.setProperty('--bdur', (Math.random() * 10 + 14) + 's');
-    b.style.setProperty('--bdelay', (Math.random() * 18) + 's');
-    b.style.setProperty('--drift', (Math.random() * 50 - 25) + 'px');
-    b.style.setProperty('--brot', (Math.random() * 20 - 10) + 'deg');
+    b.style.left = Math.random()*95+'%';
+    b.style.setProperty('--bsize', (Math.random()*1.2+1.8)+'rem');
+    b.style.setProperty('--bdur', (Math.random()*10+14)+'s');
+    b.style.setProperty('--bdelay', (Math.random()*18)+'s');
+    b.style.setProperty('--drift', (Math.random()*50-25)+'px');
+    b.style.setProperty('--brot', (Math.random()*20-10)+'deg');
     balloonBox.appendChild(b);
-}
+  }
 </script>
 
 </body>
